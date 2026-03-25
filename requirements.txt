@@ -1,0 +1,6 @@
+anthropic
+pandas
+openpyxl
+streamlit
+python-dotenv
+pyinstaller

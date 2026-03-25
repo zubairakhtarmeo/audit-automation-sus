@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Environments
+.venv/
+venv/
+ENV/
+
+# Secrets
+.env
+
+# Streamlit
+.streamlit/
+ui/_work/
+
+# Internal inputs/outputs
+raw data/
+Filled_*.xlsx
+
+# Build artifacts
+build/
+dist/
+
+
+# OS
+.DS_Store
+Thumbs.db
