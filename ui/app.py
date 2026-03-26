@@ -641,41 +641,41 @@ div[data-testid="stDataFrame"] > div {
         # Fallback to parsed sheet list if workbook cannot be opened read-only
         sheet_count = len({str(q.get("sheet") or "").strip() for q in parsed if q.get("sheet")})
 
-        st.markdown(
-                f"""
-                <div class="info-bar" style="margin-top:12px;">
-                    <div class="info-left">
-                        <span style="font-family:'DM Mono',monospace;color:#C7C7FF;">{uploaded.name}</span>
-                        <span style="color:#5A5A72;">&nbsp;|&nbsp;</span>
-                        <span style="font-family:'DM Mono',monospace;">{sheet_count} sheets</span>
-                        <span style="color:#5A5A72;">&nbsp;|&nbsp;</span>
-                        <span style="color:#9898B0;">Ready to process</span>
-                    </div>
-                    <div class="info-right">✓ READY</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-        )
+    st.markdown(
+        f"""
+        <div class="info-bar" style="margin-top:12px;">
+            <div class="info-left">
+                <span style="font-family:'DM Mono',monospace;color:#C7C7FF;">{uploaded.name}</span>
+                <span style="color:#5A5A72;">&nbsp;|&nbsp;</span>
+                <span style="font-family:'DM Mono',monospace;">{sheet_count} sheets</span>
+                <span style="color:#5A5A72;">&nbsp;|&nbsp;</span>
+                <span style="color:#9898B0;">Ready to process</span>
+            </div>
+            <div class="info-right">✓ READY</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-        st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
-        # STEP 2 — Preview card
-        st.markdown("<div class='audit-card'>", unsafe_allow_html=True)
-        _render_step_header("02", "File Analysis", "Detected questions per sheet")
-        preview_rows, total_questions = _build_preview_rows(parsed)
-        _render_preview_table(preview_rows)
+    # STEP 2 — Preview card
+    st.markdown("<div class='audit-card'>", unsafe_allow_html=True)
+    _render_step_header("02", "File Analysis", "Detected questions per sheet")
+    preview_rows, total_questions = _build_preview_rows(parsed)
+    _render_preview_table(preview_rows)
 
-        st.markdown(
-                f"""
-                <div style="margin-top:16px;display:flex;align-items:flex-end;gap:10px;">
-                    <div style="font-family:'DM Mono',monospace;font-size:34px;color:#F1F0FF;line-height:1;">{total_questions}</div>
-                    <div style="color:#9898B0;font-size:13px;padding-bottom:6px;">questions detected</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-        )
+    st.markdown(
+        f"""
+        <div style="margin-top:16px;display:flex;align-items:flex-end;gap:10px;">
+            <div style="font-family:'DM Mono',monospace;font-size:34px;color:#F1F0FF;line-height:1;">{total_questions}</div>
+            <div style="color:#9898B0;font-size:13px;padding-bottom:6px;">questions detected</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-        st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
     if total_questions == 0:
         _render_alert("warning", "No questions detected", "Try another file or confirm the workbook contains an audit questionnaire.")
