@@ -3,5 +3,6 @@ pandas
 openpyxl
 streamlit
 altair==4.2.2
+standard-imghdr
 python-dotenv
 pyinstaller
