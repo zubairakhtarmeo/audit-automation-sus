@@ -2,6 +2,6 @@ anthropic
 pandas
 openpyxl
 streamlit
-altair
+altair==4.2.2
 python-dotenv
 pyinstaller
