@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import sys
 import time
 from collections import Counter
 from pathlib import Path
@@ -8,6 +9,12 @@ from typing import Any, Dict, List, Optional, Tuple
 
 import streamlit as st
 from openpyxl import load_workbook
+
+# Streamlit Community Cloud runs this file with `ui/` as the script directory.
+# Add the repo root so top-level modules (engine/, parser/, writer/) can be imported.
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
 from engine.ai_engine import answer_question
 from parser.excel_parser import parse_audit_file
